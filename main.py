@@ -7,7 +7,7 @@ import sqlite3
 app = FastAPI()
 
 # origins = ["http://localhost:5173"]
-origins = ["https://b7-9414.github.io/Innovation_Tracker_KKESH-Frontend/"]
+origins = ["https://b7-9414.github.io"]
 
 app.add_middleware(
     CORSMiddleware,
