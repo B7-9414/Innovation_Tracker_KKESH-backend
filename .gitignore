@@ -1,0 +1,29 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Python environments
+.env
+.venv/
+env/
+venv/
+
+# SQLite database and logs
+*.sqlite3
+*.db
+*.log
+
+# Temporary files and editor configs
+*.tmp
+*.bak
+*.swp
+.DS_Store
+.idea/
+.vscode/
+
+# OS-specific
+Thumbs.db
+ehthumbs.db
