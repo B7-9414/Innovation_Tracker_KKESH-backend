@@ -12,8 +12,6 @@ env/
 venv/
 
 # SQLite database and logs
-*.sqlite3
-*.db
 *.log
 
 # Temporary files and editor configs
