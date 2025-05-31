@@ -71,16 +71,27 @@ def read_ideas():
     conn = get_db_connection()
     ideas_raw = conn.execute("SELECT * FROM ideas").fetchall()
     ideas = []
+
     for row in ideas_raw:
         idea = dict(row)
-        # Count comments for this idea
+
+        # Count of comments (optional)
         comment_count = conn.execute(
             "SELECT COUNT(*) FROM comments WHERE idea_id = ?", (idea["id"],)
         ).fetchone()[0]
         idea["comments_count"] = comment_count
+
+        # Get all comments related to the idea
+        comments = conn.execute(
+            "SELECT text FROM comments WHERE idea_id = ?", (idea["id"],)
+        ).fetchall()
+        idea["comments"] = [comment["text"] for comment in comments]
+
         ideas.append(idea)
+
     conn.close()
     return ideas
+
 
 @app.post("/ideas")
 def create_idea(idea: Idea):
